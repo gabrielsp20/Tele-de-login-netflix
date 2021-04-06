@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Pagina com JavaScript</title>
+        
+       
+    </head>
+
+   <style>
+       body{
+    margin:0;
+    display: grid;
+    place-items: center; 
+    background:#000;
+    height: 100vh;   
+}
+section{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+.percent{
+    font-family: system-ui, sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+    text-align: right;
+    color:white;
+}
+
+.loading {
+    width: 400px;
+    height: 100px;
+    border: 2px solid white;
+    box-shadow: inset 0 0 0 6px #000;
+    border-radius:15px;
+    overflow: hidden;
+}
+
+.progress{
+    height: 100%;
+    background: #2e2;
+    position: relative;
+    z-index: -1;
+}
+   </style>
+
+
+<body>
+
+    <script>
+        const progress =
+        document.querySelector(".progress");
+        const percent =
+        document.querySelector(".percent");
+        let count = 4;
+        let x = 16;
+        const loading = setInterval(Animation,20);
+        
+        function Animation(){
+            if(count == 100 && x == 400){
+                clearInterval(loading);
+            }else{
+                x += 4;
+                count++;
+                progress.style.width = `${x}px`;
+                percent.innerHTML = `${count}%`;
+            }
+        }
+        </script>
+
+<section>
+    <span class="percent"></span>
+    <div class="loading">
+        <div class="progress"></div>
+    </div>
+</section>
+
+</body>
+
+
+</html>
+
+
+
